@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Title of the document</title>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require-jquery/0.25.0/require-jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="ex-computed">
+    <p>Origin: {{ message }}</p>
+    <p>Reversed after computed: {{ reverseMessage }}</p>
+  </div>
+
+  <div id="nameDemo">
+    {{ fullName }}
+  </div>
+</body>
+
+<script type="text/javascript">
+  vm = new Vue({
+    el: "#ex-computed",
+    data: {
+      message: "This is a message Origin"
+    },
+
+    computed: {
+      reverseMessage: function(){
+        return this.message.split(' ').reverse().join(' ');
+      }
+    }
+  })
+
+  vmName = new Vue({
+    el: "#nameDemo",
+    data: {
+      firstName: "Duyet",
+      lastName: "nguyen",
+      fullName: "Nguyen Duyet"
+    },
+    watch: {
+      firstName: function(val){
+        this.fullName = val + ' ' + this.lastName;
+      }
+    }
+  })
+</script>
+</html>

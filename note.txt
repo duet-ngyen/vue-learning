@@ -1,0 +1,5 @@
+1. computed vs method
+  computed: dc cached, k phai tinh toan laij
+  method: tinh toan laij moi khi gọi đến
+2. watched vs computed
+  - watched: quan sat thay doi -> action tuong ung

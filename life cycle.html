@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Title of the document</title>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require-jquery/0.25.0/require-jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    We make the Root Vue instance will be mount in #app.
+    {{message}}
+  </div>
+</body>
+
+<script type="text/javascript">
+  var data = {a: 1, b: 3, message: "testing"}
+
+  var vm = new Vue({
+    el: '#app',
+    data: data,
+
+    beforeCreate: function () {
+      console.log($("#app").text());
+      console.log("before Create a= " + this.a);
+    },
+
+    beforeMount: function(){
+      console.log($("#app").text());
+      console.log("before mount a= " + this.a);
+
+    },
+
+    created: function(){
+      console.log($("#app").text());
+      console.log("created a= " + this.a);
+      this.a = 10;
+      console.log("re-assign created a= " + this.a);
+    },
+    mounted: function(){
+      console.log($("#app").text());
+      console.log("mounted a= " + this.a);
+      this.a = 5;
+    },
+    beforeDestroy: function(){
+      console.log("before destroy");
+    },
+
+    beforeUpdate: function(){
+      console.log("before updated a= " + this.b);
+    }
+  });
+</script>
+</html>

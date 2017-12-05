@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Title of the document</title>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require-jquery/0.25.0/require-jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="app-7">
+    <ol>
+      <todo-item
+        v-for="item in list"
+        v-bind:todo="item"
+        v-bind:key="item.id">
+      </todo-item>
+    </ol>
+  </div>
+
+
+
+  <div id="none-component">
+    <ol>
+      <li v-for="item in list">{{ item.text }}</li>
+    </ol>
+    <button v-on:click = "change">Click me to change</button>
+  </div>
+
+</body>
+
+<script type="text/javascript">
+  var data_list = {
+    list: [
+      {id: 0, text: "banana"},
+      {id: 1, text: "tomato"}
+    ]
+  }
+
+  Vue.component('todo-item', {
+    props: ['todo'],
+    template: '<li>{{ todo.text }}</li>'
+  })
+
+  var app7 = new Vue({
+    el: "#app-7",
+    data: data_list
+  })
+
+
+
+  var noneComponent = new Vue({
+    el: "#none-component",
+    data: data_list,
+
+    // do ajax sample
+    methods: {
+      change: function (){
+        noneComponent.list = [
+          {id: 1, text: "tomato updated"},
+          {id: 2, text: "Add new item"}
+        ]
+      }
+    }
+  })
+
+</script>
+</html>
