@@ -8,46 +8,44 @@
 
 <body>
   <div id="app">
-    We make the Root Vue instance will be mount in #app.
-    {{message}}
+    Hello {{name}}
+    <br>
+    This is a message: {{ message }}
   </div>
 </body>
 
 <script type="text/javascript">
-  var data = {a: 1, b: 3, message: "testing"}
+  var data = { message: "welcome to vuejs", name: "duyet" }
 
   var vm = new Vue({
     el: '#app',
     data: data,
 
     beforeCreate: function () {
-      console.log($("#app").text());
-      console.log("before Create a= " + this.a);
-    },
-
-    beforeMount: function(){
-      console.log($("#app").text());
-      console.log("before mount a= " + this.a);
-
+      console.log("before Create msg = " + this.name);
     },
 
     created: function(){
-      console.log($("#app").text());
-      console.log("created a= " + this.a);
-      this.a = 10;
-      console.log("re-assign created a= " + this.a);
+      console.log("created msg = " + this.message);
     },
+
+    beforeMount: function(){
+      console.log("before mount msg = " + this.message);
+    },
+
     mounted: function(){
-      console.log($("#app").text());
-      console.log("mounted a= " + this.a);
-      this.a = 5;
+      console.log("mounted msg = " + this.message);
     },
     beforeDestroy: function(){
       console.log("before destroy");
     },
 
     beforeUpdate: function(){
-      console.log("before updated a= " + this.b);
+      console.log("before updated msg = " + this.message);
+    },
+
+    updated: function(){
+      console.log("updated msg = " + this.message);
     }
   });
 </script>

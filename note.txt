@@ -3,3 +3,6 @@
   method: tinh toan laij moi khi gọi đến
 2. watched vs computed
   - watched: quan sat thay doi -> action tuong ung
+3. Component
+  - Register Global
+  - Register Internal
