@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Title of the document</title>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require-jquery/0.25.0/require-jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="example">
+    <my-component></my-component>
+  </div>
+</body>
+
+<script type="text/javascript">
+  Vue.component('my-component', {
+    template: '<div>Đây là một component! {{msg}}</div>',
+    data: function() {
+      return {msg: "abcd"}
+    }
+  })
+  // tạo đối tượng Vue gốc
+  new Vue({
+    el: '#example',
+    // template: "<div>This is a template</div>"
+  })
+</script>
+</html>

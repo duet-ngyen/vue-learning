@@ -9,7 +9,7 @@
 <body>
   <div id="sample">
     <span v-bind:title="hello">
-      Hello
+      Hello {{hello}}
     </span>
   </div>
 
@@ -23,7 +23,8 @@
 
   var sp = new Vue({
     el: "#sample",
-    data: data
+    data: data,
+    // template: "<div>hello there {{this.hello}}</div>"
   })
 
   // var watcher = new Vue({
